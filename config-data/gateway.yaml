@@ -33,11 +33,12 @@ spring:
           uri: lb://m2-headless
           predicates:
             - Path=/m2/**
-
         - id: m3
-          uri: lb://m3-headless
+          uri: lb://m3
           predicates:
             - Path=/m3/**
+          filters:
+            - StripPrefix=1
 
         - id: m4
           uri: lb://m4-headless
