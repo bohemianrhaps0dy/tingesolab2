@@ -2,7 +2,7 @@ server:
   port: ${SERVER_PORT}
 spring:
   application:
-    name: m2
+    name: m4
 eureka:
   instance:
     preferIPAddress: true
