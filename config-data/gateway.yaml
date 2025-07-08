@@ -37,6 +37,8 @@ spring:
           uri: lb://m3
           predicates:
             - Path=/m3/**
+          filter:
+            - StripPrefix=1
         - id: m4
           uri: lb://m4-headless
           predicates:
