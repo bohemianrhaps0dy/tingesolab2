@@ -10,6 +10,8 @@ eureka:
   instance:
     prefer-ip-address: true
 spring:
+  main:
+    web-application-type: reactive
   cloud:
     gateway:
       discovery:
@@ -33,9 +35,11 @@ spring:
           predicates:
             - Path=/m2/**
         - id: m3
-          uri: lb://m3
+          uri: lb://M3
           predicates:
             - Path=/m3/**
+          filters:
+            - StripPrefix=1
         - id: m4
           uri: lb://m4-headless
           predicates:
