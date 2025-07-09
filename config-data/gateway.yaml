@@ -35,7 +35,7 @@ spring:
           predicates:
             - Path=/m2/**
         - id: m3
-          uri: lb://M3
+          uri: lb://m3
           predicates:
             - Path=/m3/**
           filters:
