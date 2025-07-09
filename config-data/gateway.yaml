@@ -28,22 +28,20 @@ spring:
           uri: lb://m1-headless
           predicates:
             - Path=/m1/**
-
         - id: m2
           uri: lb://m2-headless
           predicates:
             - Path=/m2/**
         - id: m3
-          uri: lb://m3
-          predicates:
+         uri: lb://m3
+         predicates:
             - Path=/m3/**
-          filter:
+         filters:
             - StripPrefix=1
         - id: m4
           uri: lb://m4-headless
           predicates:
             - Path=/m4/**
-
         - id: m5
           uri: lb://m5-headless
           predicates:
