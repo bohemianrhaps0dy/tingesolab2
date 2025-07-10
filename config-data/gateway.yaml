@@ -45,6 +45,8 @@ spring:
           predicates:
             - Path=/m4/**
         - id: m5
-          uri: lb://m5-headless
+          uri: lb://m5
           predicates:
             - Path=/m5/**
+          filters:
+            - StripPrefix=1  
