@@ -9,14 +9,13 @@ spring:
     password: ${DB_PASSWORD}
   mail:
     host: smtp.gmail.com
-    port: 465
+    port: 587
     username: mauryr2001@gmail.com
     password: ${MAIL_PASSWORD}
     properties:
       mail:
         smtp:
           auth: true
-          mechanisms: XOAUTH2
           starttls:
             enable: true
   jpa:
