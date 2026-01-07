@@ -1,6 +1,5 @@
 server:
   port: ${GATEWAY_PORT:8082}
-
 eureka:
   client:
     fetch-registry: true
@@ -12,6 +11,16 @@ eureka:
 spring:
   main:
     web-application-type: reactive
+  security:
+    oauth2:
+      client:
+        provider:
+          keycloak:
+            issuer-uri: http://192.168.39.129:30180/realms/toolrent
+      resourceserver:
+        jwt:
+          jwk-set-uri: http://192.168.39.129:30180/realms/toolrent/protocol/openid-connect/certs
+  
   cloud:
     gateway:
       discovery:
@@ -46,4 +55,9 @@ spring:
           uri: lb://m5
           predicates:
             - Path=/m5/**
+        - id: m7
+          uri: lb://m7
+          predicates:
+            - Path=/m7/**            
+
 
