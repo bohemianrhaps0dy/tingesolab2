@@ -18,7 +18,7 @@ spring:
         locator:
           enabled: true
       default-filters:
-        - DedupeResponseHeader=Access-Control-Allow-Origin Access-Control-Allow-Credentials, RETAIN_UNIQUE
+        - TokenRelay
       globalcors:
         cors-configurations:
           '[/**]':
@@ -27,26 +27,23 @@ spring:
             allowedHeaders: "*"
       routes:
         - id: m1
-          uri: lb://m1-headless
+          uri: lb://m1
           predicates:
             - Path=/m1/**
         - id: m2
-          uri: lb://m2-headless
+          uri: lb://m2
           predicates:
             - Path=/m2/**
         - id: m3
           uri: lb://m3
           predicates:
             - Path=/m3/**
-          filters:
-            - StripPrefix=1
         - id: m4
-          uri: lb://m4-headless
+          uri: lb://m4
           predicates:
             - Path=/m4/**
         - id: m5
           uri: lb://m5
           predicates:
             - Path=/m5/**
-          filters:
-            - StripPrefix=1  
+
