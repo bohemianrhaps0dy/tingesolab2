@@ -23,6 +23,7 @@ spring:
       discovery:
         locator:
           enabled: true
+          lower-case-service-id: true
       default-filters:
         - TokenRelay
         - DedupeResponseHeader=Access-Control-Allow-Origin Access-Control-Allow-Credentials, RETAIN_UNIQUE
@@ -72,6 +73,7 @@ spring:
             - Path=/m7/**
           filters:
             - StripPrefix=1
+
 
 
 
