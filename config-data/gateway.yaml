@@ -28,6 +28,7 @@ spring:
           enabled: true
       default-filters:
         - TokenRelay
+        - DedupeResponseHeader=Access-Control-Allow-Origin Access-Control-Allow-Credentials, RETAIN_UNIQUE
       globalcors:
         cors-configurations:
           '[/**]':
@@ -68,6 +69,7 @@ spring:
           uri: lb://m7
           predicates:
             - Path=/m7/**            
+
 
 
 
