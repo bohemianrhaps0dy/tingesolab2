@@ -13,12 +13,9 @@ spring:
     web-application-type: reactive
   security:
     oauth2:
-      client:
-        provider:
-          keycloak:
-            issuer-uri: http://keycloak.192.168.39.111.nip.io/realms/toolrent
       resourceserver:
         jwt:
+          issuer-uri: http://keycloak.192.168.39.111.nip.io/realms/toolrent
           jwk-set-uri: http://keycloak.192.168.39.111.nip.io/realms/toolrent/protocol/openid-connect/certs
   
   cloud:
@@ -63,6 +60,7 @@ spring:
           uri: lb://m7
           predicates:
             - Path=/m7/**            
+
 
 
 
