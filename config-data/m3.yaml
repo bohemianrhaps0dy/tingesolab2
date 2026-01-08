@@ -1,6 +1,11 @@
 server:
   port: ${SERVER_PORT}
 spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: http://keycloak.192.168.39.129.nip.io/realms/toolrent/protocol/openid-connect/certs
   application:
     name: m3
   datasource:
@@ -22,3 +27,4 @@ eureka:
     register-with-eureka: true
     service-url:
       defaultZone: http://eureka-service:8761/eureka/
+
