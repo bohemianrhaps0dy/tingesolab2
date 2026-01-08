@@ -23,7 +23,6 @@ spring:
       discovery:
         locator:
           enabled: true
-          lower-case-service-id: true
       default-filters:
         - TokenRelay
         - DedupeResponseHeader=Access-Control-Allow-Origin Access-Control-Allow-Credentials, RETAIN_UNIQUE
@@ -38,41 +37,40 @@ spring:
               - Authorization
       routes:
         - id: m1
-          uri: lb://m1
+          uri: lb://M1
           predicates:
             - Path=/m1/**
-          filters:
-            - StripPrefix=1
         - id: m2
-          uri: lb://m2
+          uri: lb://M2
           predicates:
             - Path=/m2/**
           filters:
             - StripPrefix=1
         - id: m3
-          uri: lb://m3
+          uri: lb://M3
           predicates:
             - Path=/m3/**
           filters:
             - StripPrefix=1
         - id: m4
-          uri: lb://m4
+          uri: lb://M4
           predicates:
             - Path=/m4/**
           filters:
             - StripPrefix=1
         - id: m5
-          uri: lb://m5
+          uri: lb://M5
           predicates:
             - Path=/m5/**
           filters:
             - StripPrefix=1
         - id: m7
-          uri: lb://m7
+          uri: lb://M7
           predicates:
             - Path=/m7/**
           filters:
             - StripPrefix=1
+
 
 
 
