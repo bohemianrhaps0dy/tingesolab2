@@ -40,26 +40,39 @@ spring:
           uri: lb://m1
           predicates:
             - Path=/m1/**
+          filters:
+            - StripPrefix=1
         - id: m2
           uri: lb://m2
           predicates:
             - Path=/m2/**
+          filters:
+            - StripPrefix=1
         - id: m3
           uri: lb://m3
           predicates:
             - Path=/m3/**
+          filters:
+            - StripPrefix=1
         - id: m4
           uri: lb://m4
           predicates:
             - Path=/m4/**
+          filters:
+            - StripPrefix=1
         - id: m5
           uri: lb://m5
           predicates:
             - Path=/m5/**
+          filters:
+            - StripPrefix=1
         - id: m7
           uri: lb://m7
           predicates:
-            - Path=/m7/**            
+            - Path=/m7/**
+          filters:
+            - StripPrefix=1
+
 
 
 
