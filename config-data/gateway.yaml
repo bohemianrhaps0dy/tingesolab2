@@ -15,8 +15,8 @@ spring:
     oauth2:
       resourceserver:
         jwt:
-          issuer-uri: http://keycloak.192.168.39.111.nip.io/realms/toolrent
-          jwk-set-uri: http://keycloak.192.168.39.111.nip.io/realms/toolrent/protocol/openid-connect/certs
+          issuer-uri: https://keycloak.192.168.39.111.nip.io/realms/toolrent
+          jwk-set-uri: http://keycloak:8080/realms/toolrent/protocol/openid-connect/certs
   
   cloud:
     gateway:
@@ -60,6 +60,7 @@ spring:
           uri: lb://m7
           predicates:
             - Path=/m7/**            
+
 
 
 
