@@ -16,10 +16,10 @@ spring:
       client:
         provider:
           keycloak:
-            issuer-uri: http://keycloak.192.168.39.129.nip.io/realms/toolrent
+            issuer-uri: http://keycloak.192.168.39.111.nip.io/realms/toolrent
       resourceserver:
         jwt:
-          jwk-set-uri: http://keycloak.192.168.39.129.nip.io/realms/toolrent/protocol/openid-connect/certs
+          jwk-set-uri: http://keycloak.192.168.39.111.nip.io/realms/toolrent/protocol/openid-connect/certs
   
   cloud:
     gateway:
@@ -31,7 +31,7 @@ spring:
       globalcors:
         cors-configurations:
           '[/**]':
-            allowedOrigins: '*'
+            allowedOrigins: "*"
             allowedMethods: "*"
             allowedHeaders: "*"
       routes:
@@ -59,6 +59,7 @@ spring:
           uri: lb://m7
           predicates:
             - Path=/m7/**            
+
 
 
 
