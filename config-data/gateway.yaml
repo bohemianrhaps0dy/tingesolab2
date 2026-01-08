@@ -31,9 +31,18 @@ spring:
       globalcors:
         cors-configurations:
           '[/**]':
-            allowedOrigins: "*"
-            allowedMethods: "*"
-            allowedHeaders: "*"
+            allowed-origins: "http://localhost:8008"
+            allowed-methods:
+              - GET
+              - POST
+              - PUT
+              - DELETE
+              - PATCH
+              - OPTIONS
+            allowed-headers: "*"
+            allow-credentials: true
+            exposed-headers:
+              - Authorization
       routes:
         - id: m1
           uri: lb://m1
@@ -59,6 +68,7 @@ spring:
           uri: lb://m7
           predicates:
             - Path=/m7/**            
+
 
 
 
