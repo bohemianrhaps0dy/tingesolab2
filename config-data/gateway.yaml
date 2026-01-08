@@ -14,6 +14,12 @@ spring:
   security:
     oauth2:
       client:
+        registration:
+          keycloak:
+            client-secret: HmdEwrR7TW1kVE2TLXGjfc3dbdaw3Wiu
+            client-id: back-tools
+            authorization-grant-type: authorization_code
+            redirect-uri: http://keycloak.192.168.39.111.nip.io/login/oauth2/code/keycloak
         provider:
           keycloak:
             issuer-uri: http://keycloak.192.168.39.111.nip.io/realms/toolrent
@@ -68,6 +74,7 @@ spring:
           uri: lb://m7
           predicates:
             - Path=/m7/**            
+
 
 
 
