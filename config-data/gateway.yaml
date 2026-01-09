@@ -40,8 +40,6 @@ spring:
           uri: lb://m1
           predicates:
             - Path=/m1/**
-          filters:
-            - RewritePath=/m3/(?<segment>.*), /${segment}
         - id: m2
           uri: lb://m2
           predicates:
@@ -72,6 +70,7 @@ spring:
             - Path=/m7/**
           filters:
             - RewritePath=/m3/(?<segment>.*), /${segment}
+
 
 
 
