@@ -1,45 +1,32 @@
 server:
-  port: ${GATEWAY_PORT:8082}
-eureka:
-  client:
-    fetch-registry: true
-    register-with-eureka: true
-    service-url:
-      defaultZone: http://eureka-service:8761/eureka/
-  instance:
-    prefer-ip-address: true
+  port: ${GATEWAY_PORT:8080}
 spring:
   main:
-    web-application-type: reactive
-  security:
-    oauth2:
-      resourceserver:
-        jwt:
-          issuer-uri: https://keycloak.192.168.39.111.nip.io/realms/toolrent
-          jwk-set-uri: http://keycloak:8080/realms/toolrent/protocol/openid-connect/certs
-  
-  cloud:
-    gateway:
-      discovery:
-        locator:
-          enabled: true
-      default-filters:
-        - TokenRelay
-        - DedupeResponseHeader=Access-Control-Allow-Origin Access-Control-Allow-Credentials, RETAIN_UNIQUE
       globalcors:
         cors-configurations:
           '[/**]':
             allowedOrigins: '*'
             allowedMethods: "*"
             allowedHeaders: "*"
-            allow-credentials: true
-            exposed-headers:
-              - Authorization
+            allowedMethods:
+              - GET
+              - POST
+              - PUT
+              - DELETE
+              - OPTIONS
       routes:
-        - id: m1
-          uri: lb://m1
+        - id: moves
+          uri: lb://ms-moves:8083
           predicates:
-            - Path=/m1/**
+            - Path=/api/v1/moves/**
+        - id: income
+          uri: lb://ms-income:8082
+          predicates:
+            - Path=/api/v1/income/**
+        - id: expenses
+          uri: lb://ms-expenses:8081
+          predicates:
+            - Path=/api/v1/expenses/**
         - id: m2
           uri: lb://m2
           predicates:
@@ -70,6 +57,7 @@ spring:
             - Path=/m7/**
           filters:
             - RewritePath=/m3/(?<segment>.*), /${segment}
+
 
 
 
