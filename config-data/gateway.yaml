@@ -1,5 +1,6 @@
 server:
   port: 8080
+
 spring:
   cloud:
     gateway:
@@ -17,10 +18,6 @@ spring:
               - OPTIONS
 
       routes:
-        - id: moves
-          uri: http://ms-moves:8083
-          predicates:
-            - Path=/api/v1/moves/**
 
         - id: income
           uri: http://ms-income:8082
@@ -32,51 +29,7 @@ spring:
           predicates:
             - Path=/api/v1/expenses/**
 
-        - id: m2
-          uri: lb://m2
+        - id: moves
+          uri: http://ms-moves:8083
           predicates:
-            - Path=/m2/**
-          filters:
-            - RewritePath=/m3/(?<segment>.*), /${segment}
-        - id: m3
-          uri: lb://m3
-          predicates:
-            - Path=/m3/**
-          filters:
-            - RewritePath=/m3/(?<segment>.*), /${segment}
-        - id: m4
-          uri: lb://m4
-          predicates:
-            - Path=/m4/**
-          filters:
-            - RewritePath=/m3/(?<segment>.*), /${segment}
-        - id: m5
-          uri: lb://m5
-          predicates:
-            - Path=/m5/**
-          filters:
-            - RewritePath=/m3/(?<segment>.*), /${segment}
-        - id: m7
-          uri: lb://m7
-          predicates:
-            - Path=/m7/**
-          filters:
-            - RewritePath=/m3/(?<segment>.*), /${segment}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+            - Path=/api/v1/moves/**
